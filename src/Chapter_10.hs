@@ -57,7 +57,7 @@ myPutStr = undefined
 -- Hint: Start by defining an auxiliary function adder' :: Int -> Int -> IO () that takes the current total and how many numbers remain to be read as arguments. Use the library functions read and show to convert between Int and String.
 
 -- >>> :t read
--- show :: Show a => a -> String
+-- read :: Read a => String -> a
 
 -- >>> :t show
 -- show :: Show a => a -> String
@@ -68,9 +68,9 @@ adder' :: Int -> Int -> IO ()
 adder' = undefined
 
 
--- Exercise 9.5 (***)
+-- Exercise 10.5 (***)
 -- Redefine adder using the function sequence :: [IO a] -> IO [a] that performs a list of actions and returns a list of resulting values.
--- Note: Use the name adderUsingSequence for yuor solution to avoid a name clash with the previous solution. 
+-- Note: Use the name adderUsingSequence for your solution to avoid a name clash with the previous solution. 
 
 adderUsingSequence :: IO ()
 adderUsingSequence = undefined

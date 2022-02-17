@@ -50,7 +50,7 @@ data List a = Nil | Cons a (List a)
     deriving Show
 
 instance Eq a => Eq (List a) where
-    (==) = undefined 
+    (==) _ _ = undefined 
 
 
     

@@ -10,7 +10,7 @@ e_7_1 = undefined
 
 
 -- Exercise 7.2 (**)
--- Without looking at the definitions from the standard prelude, define the following higher-order library functions on lists. Try to use the higher-order functions and, or, (.) and map within your definitions if possible.
+-- Without looking at the definitions from the standard prelude, define the following higher-order library functions on lists. Try to use the higher-order functions and, or, (.), foldr and map within your definitions if possible.
 -- Note: in the prelude the first two of these functions are generic functions rather than being specific to the type of lists.
 -- Note: If you are trying this within ghc, please note that these functions are already defined in the Prelude. Use fresh function names by prefixing each name with a "my" and changing the resulting name into camelcase, for example "all" becomes "myAll". 
 
@@ -47,8 +47,9 @@ myDropWhile = undefined
 
 
 
+
 -- Exercise 7.3 (**)
--- Redefine the functions map f and filter p using foldr.
+-- Redefine the functions map and filter using foldr.
 
 myMap :: (a -> b) -> [a] -> [b]
 -- myMap f = foldr ??? ???

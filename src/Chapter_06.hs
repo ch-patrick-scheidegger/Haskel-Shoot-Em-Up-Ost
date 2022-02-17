@@ -71,8 +71,8 @@ init [1,2,3]
 
 -- Exercise 6.6 (**)
 -- Without looking at the definitions from the standard prelude, define the following library functions on lists using recursion.
--- Note: If you are trying this within ghc, please note that these functions are already defined in the Prelude. Use fresh function names by prefixing each name with a "my" and changing the resulting name into camelcase, for example "and" becomes "myAnd". Operators should be suffixed with a "#" (i.e., !! becomes !!#).
--- Note: most of these functions are defined in the prelude using other library functions rather than using explicit recursion, and are generic functions rather than being specific to the type of lists.
+-- Note: If you are trying this within ghc, please note that these functions are already defined in the Prelude. Use fresh function names by prefixing each name with a "my" and changing the resulting name into camelcase, for example "and" becomes "myAnd". The operators you define should be suffixed with a "#" (i.e., !! becomes !!#).
+-- Note: Most of these functions are defined in the prelude using other library functions rather than using explicit recursion, and are generic functions rather than being specific to the type of lists.
 
 -- (a) Decide if all logical values in a list are True: 
 --     and :: [Bool] -> Bool
