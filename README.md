@@ -11,7 +11,7 @@ Note: This repo contains (in some cases modified) exercises from ”Programming 
 
 # Usage (using local clones)
 
-1. Clone this repo onto your local machine using the command `git clone <repo URL>`. You may alternatively download an archive containing the repo using the download button on the main project page on GitLab in case you have problems using git.
+1. Clone this repo onto your local machine using the command `git clone <repo URL>`. You may alternatively download an archive containing the repo using the download button on the main project page on GitLab in case you have problems using Git.
 2. Use `stack build` to build the project to make sure that everything compiles before starting.
 3. Start!
 4. Once you decide to work on a chapter, uncomment the relevant lines in `test/Spec.hs` to enable its automated tests.
