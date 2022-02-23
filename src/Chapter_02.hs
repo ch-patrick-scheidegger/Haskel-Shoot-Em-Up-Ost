@@ -4,7 +4,7 @@ module Chapter_02 where
 -- Exercise 2.1 (*)
 -- Work through the examples of chapter ”First Steps” using GHCi.
 
--- Copy and paste your ghci sesssion into the block comment below.
+-- Copy and paste your ghci session into the block comment below.
 {-
 
 -}

@@ -67,7 +67,7 @@ module Chapter_03 where
 -- Exercise 3.4 (*)
 -- Check your answers to the preceding three questions using GHCi.
 
--- Copy and paste your ghci sesssion into the block comment below.
+-- Copy and paste your ghci session into the block comment below.
 {-
 -}
 
