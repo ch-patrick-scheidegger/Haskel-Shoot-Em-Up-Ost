@@ -19,7 +19,7 @@ mergeRef (x:xs) (y:ys) =   if x <= y then
 spec :: Spec
 spec = do
 
-    describe "Exercise 6.1" $ do
+    describe "Exercise 6.2" $ do
         describe "sumdown" $ do
             it "works for 3" $
                 sumdown 3 `shouldBe` 6
