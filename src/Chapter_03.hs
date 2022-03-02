@@ -44,23 +44,24 @@ module Chapter_03 where
 
 -- Hint: take care to include the necessary class constraints in the types if the functions are defined using overloaded operators.
 
--- second xs = head (tail xs) 
+-- Note: You need to replace the ??? and uncomment the type definitions in order for them to be checked by the compiler.
+
+second xs = head (tail xs) 
 -- second :: ???
 
--- swap (x,y) = (y,x)
+swap (x,y) = (y,x)
 -- swap :: ???
 
--- pair x y = (x,y)
+pair x y = (x,y)
 -- pair :: ???
 
--- double x = x*2
+double x = x*2
 -- double :: ???
 
-
--- palindrome xs = reverse xs == xs 
+palindrome xs = reverse xs == xs 
 -- palindrome :: ???
 
--- twice f x = f (f x)
+twice f x = f (f x)
 -- twice :: ??? 
 
 
