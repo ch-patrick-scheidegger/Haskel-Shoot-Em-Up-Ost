@@ -8,7 +8,7 @@ import Test.QuickCheck
 
 spec :: Spec
 spec = do
-    describe "Exercise 1.1" $ do
+    describe "Exercise 1.3" $ do
         describe "myProduct" $ do
             it "myProduct [2,3,4] == 24" $
                 myProduct [2,3,4] `shouldBe` 24
