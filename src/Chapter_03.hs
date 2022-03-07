@@ -67,13 +67,13 @@ module Chapter_03 where
 -- Exercise 3.4 (*)
 -- Check your answers to the preceding three questions using GHCi.
 
--- Copy and paste your ghci sesssion into the block comment below.
+-- Copy and paste your ghci session into the block comment below.
 {-
 -}
 
 -- Exercise 3.5 (**)
 -- Why is it not feasible in general for function types to be instances of the Eq class? When is it feasible? Hint: two functions of the same type are equal if they always return equal results for equal arguments.
 
--- Type ypur answer into the block comment below.
+-- Type your answer into the block comment below.
 {-
 -}
