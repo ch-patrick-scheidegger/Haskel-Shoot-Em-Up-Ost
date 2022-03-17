@@ -2,7 +2,7 @@ module Chapter_02 where
 
 
 -- Exercise 2.1 (*)
--- Work through the examples of chapter ”First Steps” using GHCi.
+-- Work through the examples of chapter ”First Steps” (Programming in Haskell p.14-20) using GHCi.
 
 -- Copy and paste your ghci session into the block comment below.
 {-
