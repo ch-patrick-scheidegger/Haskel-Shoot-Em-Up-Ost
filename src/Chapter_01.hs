@@ -1,6 +1,7 @@
 module Chapter_01 where
 
 -- Exercise 1.1 (*)
+-- Look at the two ways to solve double (double 2) in the Book (Programming in Haskell p.3f).
 -- Give another possible calculation for the result of double (double 2).
 
 

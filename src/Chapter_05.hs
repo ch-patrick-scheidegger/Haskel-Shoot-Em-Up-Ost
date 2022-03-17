@@ -24,6 +24,13 @@ myReplicate n x = [ undefined | undefined ]
 -- positions :: Eq a => a -> [a] -> [Int]
 -- positions x xs = [i | (x',i) <- zip xs [0..], x == x']
 -- without using list comprehension, but using the functions find and zip.
+
+-- zip is provided by the Standard Prelude:
+-- zip :: [a] -> [b] -> [(a,b)] 
+-- zip [] _ = []
+-- zip _ [] = []
+-- zip (a:as) (b:bs) = (a,b) : zip as bs
+
 find :: Eq a => a -> [(a,b)] -> [b]
 find k t = [v | (k',v) <- t, k == k']
 
