@@ -1,7 +1,7 @@
 module Chapter_01 where
 
 -- Exercise 1.1 (*)
--- Look at the two ways to solve double (double 2) in the Book (Programming in Haskell p.3f).
+-- Chapter 1 of the book "Programming in Haskell" contains two calculations for double (double 2).
 -- Give another possible calculation for the result of double (double 2).
 
 
@@ -15,7 +15,7 @@ double (double 2)
 
 
 -- Exercise 1.2 (*)
--- Show that sum [x] = x for any number x.
+-- Show that sum [x] = x for any number x. Use the definiton of sum stated in Chapter 1 of "Programming in Haskell". 
 
 -- Complete the following block comment.
 {-

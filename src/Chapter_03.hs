@@ -22,6 +22,7 @@ module Chapter_03 where
 -- Exercise 3.2
 -- Write down definitions that have the following types; it does not matter what the definitions actually do as long as they are type correct. The type of your defined function may be more general than the types defined below.
 
+-- Note: Please replace the ??? and uncomment the type declarations and your answers in order for them to be checked by the compiler.
 
 -- bools :: [Bool]
 -- bools = ???
@@ -44,7 +45,7 @@ module Chapter_03 where
 
 -- Hint: take care to include the necessary class constraints in the types if the functions are defined using overloaded operators.
 
--- Note: You need to replace the ??? and uncomment the type definitions in order for them to be checked by the compiler.
+-- Note: Please replace the ??? and uncomment your answers in order for them to be checked by the compiler.
 
 second xs = head (tail xs) 
 -- second :: ???
@@ -73,7 +74,7 @@ twice f x = f (f x)
 -}
 
 -- Exercise 3.5 (**)
--- Why is it not feasible in general for function types to be instances of the Eq class? When is it feasible? Hint: two functions of the same type are equal if they always return equal results for equal arguments.
+-- Why is it not feasible in general for function types to be instances of the Eq class? When is it feasible? Hint: two functions of the same type are equal if they always return equal results for equal arguments. Try to define a function that computes whether two functions (its inputs) are equal.
 
 -- Type your answer into the block comment below.
 {-

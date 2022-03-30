@@ -25,8 +25,6 @@ data Expr = Val Int | Add Expr Expr
 folde :: (Int -> a) -> (a -> a -> a) -> Expr -> a
 folde = undefined 
 
--- Note: The tests for this folde depend on the correct answer of exercise 8.6. Therefore please first answer both these questions before trying the tests. 
-
 
 -- Exercise 8.6 (**)
 -- Using folde, define a function eval :: Expr -> Int that evaluates an expression to an integer value, and a function size :: Expr -> Int that calculates the number of values in an expression.

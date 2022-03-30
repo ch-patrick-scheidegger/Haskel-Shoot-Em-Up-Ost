@@ -1,3 +1,11 @@
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# HLINT ignore "Use map" #-}
+{-# HLINT ignore "Redundant lambda" #-}
+{-# HLINT ignore "Use uncurry" #-}
+{-# HLINT ignore "Use curry" #-}
+{-# HLINT ignore "Use any" #-}
+{-# HLINT ignore "Use all" #-}
+
 module Chapter_07 where
 
 -- Exercise 7.1 (*)

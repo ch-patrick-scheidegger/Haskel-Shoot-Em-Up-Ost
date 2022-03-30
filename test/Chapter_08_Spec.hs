@@ -38,6 +38,11 @@ instance Arbitrary Expr where
 -- >>> sample' (arbitrary :: Gen Expr)
 -- [Val 0,Add (Val 0) (Add (Val (-2)) (Val 1)),Add (Val 1) (Val 1),Add (Val 0) (Add (Val 5) (Add (Val 3) (Val 2))),Add (Val 0) (Val 3),Add (Add (Add (Val 7) (Add (Val 9) (Val 9))) (Add (Val (-9)) (Add (Val 2) (Val (-1))))) (Val (-6)),Add (Val 2) (Add (Add (Val 8) (Val 5)) (Val 8)),Add (Add (Val 11) (Add (Add (Val 6) (Val (-6))) (Val (-13)))) (Add (Val 7) (Val 2)),Add (Val 7) (Val 7),Add (Add (Add (Val 18) (Val 17)) (Val (-14))) (Val 12),Add (Val (-14)) (Val (-6))]
 
+-- The test for `folde` in exercise 8.5 requires a correct implementation of  `(=)` which is the solution of exercise 8.7. The test for exercise 8.5 therefore requires the correct solution of exercise 8.7. In order for exercise 8.5 to be tested independently of exercise 8.7, the following alternative definition of equality is used.
+localEquals :: Expr -> Expr -> Bool
+localEquals (Val i) (Val j) = i == j
+localEquals (Add e11 e12) (Add e21 e22) = e11 `localEquals` e21 && e12 `localEquals` e22 
+localEquals _ _ = False 
 
 instance Arbitrary a => Arbitrary (List a) where
     arbitrary :: Gen (List a)
@@ -45,6 +50,8 @@ instance Arbitrary a => Arbitrary (List a) where
         where
             fromHaskellList [] = Nil
             fromHaskellList (x:xs) = Cons x (fromHaskellList xs)
+
+
 
 spec :: Spec
 spec = do
@@ -57,7 +64,7 @@ spec = do
     describe "Exercise 8.5" $ do
         describe "folde" $ do
             it "Returns an identical expresion if given the constructors" $
-                property $ \ e -> folde Val Add e == e
+                property $ \ e -> folde Val Add e `localEquals` e
 
     describe "Exercise 8.6" $ do
         describe "eval" $ do
