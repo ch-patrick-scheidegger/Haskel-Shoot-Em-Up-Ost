@@ -2,24 +2,25 @@ module Chapter_04 where
 
 
 -- Exercise 4.3 (**)
--- Consider a function safeTail :: [a] -> [a] that behaves in the same way as tail except that it maps the empty list to itself rather than producing an error. Using tail and the function null :: [a] -> Bool that decides if a list is empty or not, define safetail using:
+-- Consider a function safeTail :: [a] -> [a] that behaves in the same way as tail 
+-- except that it maps the empty list to itself rather than producing an error. 
+-- Using tail and the function null :: [a] -> Bool that decides if a list is empty or not, define safetail using:
 -- (a) a conditional expression; 
 -- (b) guarded equations;
 -- (c) pattern matching.
 
 safeTailA :: [a] -> [a]
--- safeTailA xs = if ??? then ??? else ???
-safeTailA = undefined
+safeTailA xs = if null xs then [] else tail xs
 
 safeTailB :: [a] -> [a]
--- safeTailB xs | ??? = ???
---              | ??? = ???
-safeTailB = undefined
+safeTailB xs | null xs = []
+             | otherwise = tail xs
+-- safeTailB = undefined
 
 safeTailC :: [a] -> [a]
--- safeTailC ??? = ???  
--- safeTailC ??? = ???
-safeTailC = undefined
+safeTailC [] = []  
+safeTailC xs = tail xs
+-- safeTailC = undefined
 
 
 
@@ -31,6 +32,7 @@ safeTailC = undefined
 
 mult :: Int -> (Int -> (Int -> Int)) 
 -- mult = ???
-mult = undefined
-
+mult = \x -> (\y -> (\z -> x * z * y))
+-- >>> mult 3 2 3
+-- 18
 
