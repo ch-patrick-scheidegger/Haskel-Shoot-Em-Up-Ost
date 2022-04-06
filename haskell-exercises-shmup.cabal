@@ -25,6 +25,7 @@ source-repository head
 
 library
   exposed-modules:
+      BinarySearchTree
       Chapter_01
       Chapter_02
       Chapter_03

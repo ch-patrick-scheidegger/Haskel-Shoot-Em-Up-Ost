@@ -66,7 +66,11 @@ size = folde (\x -> 1) (+)
 -- Provide instance definitions to make the Expr and List types an instance of the Eq typeclass.
 
 instance Eq Expr where
-    _ == _ = undefined
+    -- (==) :: Expr a => a -> a -> bool
+    Val x == Val y = x == y
+    Add x1 x2 == Add y1 y2 = x1 == y1 && x2 == y2
+    Val _ == Add _ _ = False
+    Add _ _ == Val _ = False
 
 
 data List a = Nil | Cons a (List a)
@@ -74,7 +78,10 @@ data List a = Nil | Cons a (List a)
 
 
 instance Eq a => Eq (List a) where
-    (==) _ _ = undefined
-
+    -- (==) :: List a => a -> a -> bool
+    Nil == Nil = True
+    Cons x xss == Cons y yss = x == y && xss == yss
+    Nil == Cons x xss = False 
+    Cons x xss == Nil = False 
 
 
