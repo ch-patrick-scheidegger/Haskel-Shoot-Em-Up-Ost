@@ -2,7 +2,7 @@ module BinarySearchTree
 (T, empty, insert, fromList, toList, member, merge)
 where
 
-import Data.List (sort)
+import Data.List (sort, nub)
 
 data T a = Leaf | Node (T a) a (T a)
 
@@ -81,13 +81,14 @@ insert x (Node t1 y t2)
 -- Expected result: ((1)2)
 -- >>> fromList [1,2]
 -- ((1)2)
+-- LIST MUST BE ORDERED AND ENTRIES MUST BE UNIQUE
 fromList :: Ord a => [a] -> T a
 fromList [] = empty
 fromList [x] = Node Leaf x Leaf
-fromList (x:xss) = Node (fromList (fst (getHalves (x:xss)))) (getPivot (x:xss)) (fromList (tail (snd (getHalves (x:xss)))))
+fromList (x:xs) = Node (fromList firstHalf) getPivot (fromList (tail secondHalf))
    where 
-       getPivot (y:ys) = (y:ys) !! div (length (x:xss)) 2
-       getHalves xs = splitAt (div (length xs) 2) xs
+       getPivot = (x:xs) !! div (length (x:xs)) 2
+       (firstHalf, secondHalf) = splitAt (div (length (x:xs)) 2) (x:xs)
 
 
 
@@ -96,6 +97,5 @@ mergeTestValueTwo = Node (Node Leaf 5 Leaf) 15 (Node Leaf 30 Leaf)
 
 -- >>> merge mergeTestValueOne mergeTestValueTwo
 -- (((1)5(9))15((20)30))
-
 merge :: Ord a => T a -> T a -> T a
-merge xTree yTree = fromList (sort ((toList xTree) ++ (toList yTree)))
+merge xTree yTree = fromList (sort (nub ((toList xTree) ++ (toList yTree))))
