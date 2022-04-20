@@ -1,5 +1,5 @@
 module BinarySearchTree
-(T, empty, insert, fromList, toList, member, merge)
+(T, empty, insert, fromList, toList, member, merge, fromSortedList, balanceTree)
 where
 
 import Data.List (sort, nub)
@@ -60,13 +60,9 @@ empty :: T a
 empty = Leaf
 
 
--- Expected result: (((1)3(4))5((6)7(9(100))))
--- >>> insert 100 testValue
--- (((1)3(4))5((6)7(9(100))))
-
--- Expected result: (((1)3(4))5((6)7(9)))
--- >>> insert 4 testValue
--- (((1)3(4))5((6)7(9)))
+-- Expected result: ((3)5(9))
+-- >>> insert 3 (Node (Node Leaf 3 Leaf) 5 (Node Leaf 9 Leaf))
+-- ((3)5(9))
 insert :: Ord a => a -> T a -> T a
 insert x Leaf = Node Leaf x Leaf
 insert x (Node t1 y t2)
@@ -74,28 +70,28 @@ insert x (Node t1 y t2)
     | x < y = Node (insert x t1) y t2
     | otherwise = Node t1 y (insert x t2)
 
--- Expected result: (((1)3(4))5((6)7(9)))
--- >>> fromList [1,3,4,5,6,7,9]
--- (((1)3(4))5((6)7(9)))
-
--- Expected result: ((1)2)
--- >>> fromList [1,2]
--- ((1)2)
--- LIST MUST BE ORDERED AND ENTRIES MUST BE UNIQUE
+-- Expected result: (((2)3)7(8))
+-- >>> fromList [7,8,2,3]
+-- (((2)3)7(8))
 fromList :: Ord a => [a] -> T a
 fromList [] = empty
-fromList [x] = Node Leaf x Leaf
-fromList (x:xs) = Node (fromList firstHalf) getPivot (fromList (tail secondHalf))
-   where 
-       getPivot = (x:xs) !! div (length (x:xs)) 2
-       (firstHalf, secondHalf) = splitAt (div (length (x:xs)) 2) (x:xs)
+fromList (x:xs) = foldr insert (Node Leaf x Leaf) (x:xs)
 
-
-
-mergeTestValueOne = Node (Node Leaf 1 Leaf) 9 (Node Leaf 20 Leaf)
-mergeTestValueTwo = Node (Node Leaf 5 Leaf) 15 (Node Leaf 30 Leaf)
-
--- >>> merge mergeTestValueOne mergeTestValueTwo
+-- Expected Result: (((1)5(9))15((20)30))
+-- >>> merge (Node (Node Leaf 1 Leaf) 9 (Node Leaf 20 Leaf)) (Node (Node Leaf 5 Leaf) 15 (Node Leaf 30 Leaf))
 -- (((1)5(9))15((20)30))
 merge :: Ord a => T a -> T a -> T a
-merge xTree yTree = fromList (sort (nub ((toList xTree) ++ (toList yTree))))
+merge xTree yTree = fromSortedList (sort (nub ((toList xTree) ++ (toList yTree))))
+
+-- Additional Functions
+balanceTree :: Ord a => T a -> T a
+balanceTree x = fromSortedList (toList x)
+
+-- Requires a sorted list without duplicates!
+fromSortedList :: Ord a => [a] -> T a
+fromSortedList [] = empty
+fromSortedList [x] = Node Leaf x Leaf
+fromSortedList (x:xs) = Node (fromSortedList firstHalf) getPivot (fromSortedList (tail secondHalf))
+   where
+       getPivot = (x:xs) !! div (length (x:xs)) 2
+       (firstHalf, secondHalf) = splitAt (div (length (x:xs)) 2) (x:xs)
