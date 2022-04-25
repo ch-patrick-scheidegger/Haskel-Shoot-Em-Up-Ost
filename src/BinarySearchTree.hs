@@ -32,7 +32,7 @@ instance Eq a => Eq (T a) where
 instance Ord a => Semigroup (T a) where
     xTree <> yTree = merge xTree yTree
 
-instance Ord a => Monoid (T a) where
+instance (Ord a, Semigroup a) => Monoid (T a) where
     mempty = empty
     -- Source: https://wiki.haskell.org/Monoid
     -- defining mappend is unnecessary, it copies from Semigroup
@@ -75,7 +75,7 @@ insert x (Node t1 y t2)
 -- (((2)3)7(8))
 fromList :: Ord a => [a] -> T a
 fromList [] = empty
-fromList (x:xs) = foldr insert (Node Leaf x Leaf) (x:xs)
+fromList xs = fromSortedList (sort (nub xs))
 
 -- Expected Result: (((1)5(9))15((20)30))
 -- >>> merge (Node (Node Leaf 1 Leaf) 9 (Node Leaf 20 Leaf)) (Node (Node Leaf 5 Leaf) 15 (Node Leaf 30 Leaf))
