@@ -26,9 +26,10 @@ add (Succ m) n = Succ (add m n)
 -- Succ Zero
 
 -- 3 * 2 = 3 + (3 + (0))
+-- m * (n+1) = m + (m * n) 
+-- mn + m = mn + m
 
 mult :: Nat -> Nat -> Nat
-mult Zero _ = Zero
 mult _ Zero = Zero
 mult m (Succ n) = add m (mult m n)
 
